@@ -2,8 +2,8 @@
 
 ## API Examples
 * ### baseURL 
-* ### HTTP GET    '/'
-  * with filters "start" and "limit"  http://localhost:3000/station?start=10&limit=2
+* ### HTTP GET        '/'
+  * #### with filters "start" and "limit"  http://localhost:3000/station?start=10&limit=2
       
 
       ```[
@@ -77,10 +77,10 @@
 
 * ### HTTP PUT          '/:id' 
   
-*       baseURl/_id                     baseURl/60601dbb30ead127d827d85a 
+*      baseURl/_id               baseURl/60601dbb30ead127d827d85a 
          
-      ``` {
-    "Station": {
+      {
+     "Station": {
         "_id": "60601dbb30ead127d827d85a",
         "Title": "Capgemini Oy",
         "Town": "Espoo",
@@ -90,8 +90,8 @@
         "Location": {
         "coordinates": [24.77772323548868, 60.203353130088146]
         }
-    },
-    "Connections":[
+      },
+      "Connections":[
         {
         "_id": "60601dbb30ead127d827d858",
         "ConnectionTypeID": "5e39eecac5598269fdad81a0",
@@ -107,13 +107,13 @@
         "Quantity": 2
         }
 
-    ]
-    } ``` 
+        ]
+        }
 
-  * ### HTTP DELETE        '/:id'    USE id,   606020c730ead127d827d85c
+  * ### HTTP DELETE      '/:id'    USE id,   606020c730ead127d827d85c
 
-     ```  {
-    "Station": {
+        {
+        "Station": {
         "_id": "606020c730ead127d827d85c",
         "Title": "Capgemini Oy",
         "Town": "Espoo",
@@ -123,11 +123,11 @@
         "Location": {
         "coordinates": [24.77772323548868, 60.203353130088146]
         }
-    },
-    "Connections": [
+       },
+       "Connections": [
         "606020c730ead127d827d85b"
-    ]
-     }```
+       ]
+       }
 
 
   * ### HTTP GET '/:id'    USE id,   6060232030ead127d827d85e
