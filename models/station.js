@@ -32,4 +32,5 @@ stationSchema.set('toJSON', {
   },
 });
 
+
 module.exports = mongoose.model('Station', stationSchema);
