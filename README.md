@@ -6,8 +6,8 @@
   * #### with filters "start" and "limit"  http://localhost:3000/station?start=10&limit=2
       
 
-      ```[
-    {
+      [
+       {
         "Location": {
             "coordinates": [
                 25.017043672427235,
@@ -47,15 +47,15 @@
         "StateOrProvince": "Southern Finland",
         "Postcode": "00700",
         "id": "5e590b0a7536c009841db2f9"
-    }
-     ] 
+       }
+       ] 
 
   *  #### filtering by geo location   http://localhost:3000/station?topRight={"lat":60.2821946,"lng":25.036108}&bottomLeft={"lat":60.1552076,"lng":24.7816538}
   
-* ### HTTP POST         '/' 
+* ### HTTP POST      '/' 
   
-    ``` {
-    "Station": {
+     {
+     "Station": {
         "Title": "Capgemini Oy",
         "Town": "Espoo",
         "AddressLine1": "Sinimäentie 8b",
@@ -64,20 +64,20 @@
         "Location": {
         "coordinates": [24.77772323548868, 60.203353130088146]
         }
-    },
-    "Connections":[
+      },
+     "Connections":[
         {
         "ConnectionTypeID": "5e39eecac5598269fdad81a0",
         "CurrentTypeID": "5e39ef4a6921476aaf62404a",
         "LevelID": "5e39edf7bb7ae768f05cf2bc",
         "Quantity": 4
         }
-    ]
-   } ```
+      ]
+      } 
 
-* ### HTTP PUT          '/:id' 
+* ### HTTP PUT       '/:id' 
   
-*      baseURl/_id               baseURl/60601dbb30ead127d827d85a 
+*      baseURl/_id         baseURl/60601dbb30ead127d827d85a 
          
       {
      "Station": {
@@ -131,16 +131,17 @@
 
 
   * ### HTTP GET '/:id'    USE id,   6060232030ead127d827d85e
+
       Example result
 
-     ```  {
-    "Location": {
+       {
+       "Location": {
         "coordinates": [
             24.77772323548868,
             60.203353130088146
         ]
-    },
-    "Connections": [
+      },
+      "Connections": [
         {
             "_id": "6060232030ead127d827d85d",
             "ConnectionTypeID": {
@@ -165,13 +166,13 @@
             "Quantity": 3,
             "__v": 0
         }
-    ],
-    "Title": "Capgemini Oy",
-    "Town": "Espoo",
-    "AddressLine1": "Sinimäentie 8b",
-    "StateOrProvince": "Southern Finland",
-    "Postcode": "02630",
-    "id": "6060232030ead127d827d85e" 
+       ],
+        "Title": "Capgemini Oy",
+       "Town": "Espoo",
+       "AddressLine1": "Sinimäentie 8b",
+       "StateOrProvince": "Southern Finland",
+      "Postcode": "02630",
+      "id": "6060232030ead127d827d85e" 
        } 
 
 
