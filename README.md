@@ -1,9 +1,9 @@
 # chargemap
 
 ## API Examples
-* ### baseURL 
-* ### HTTP GET   '/'
-  * #### with filters "start" and "limit"  http://localhost:3000/station?start=10&limit=2
+* ## baseURL 
+* ## HTTP GET   '/'
+  * ## with filters "start" and "limit"  http://localhost:3000/station?start=10&limit=2
       
 
      ```
@@ -49,9 +49,9 @@
         "id": "5e590b0a7536c009841db2f9"
       }]
 
-  *  #### filtering by geo location   http://localhost:3000/station?topRight={"lat":60.2821946,"lng":25.036108}&bottomLeft={"lat":60.1552076,"lng":24.7816538}
+  *  ## filtering by geo location   http://localhost:3000/station?topRight={"lat":60.2821946,"lng":25.036108}&bottomLeft={"lat":60.1552076,"lng":24.7816538}
   
-* ### HTTP POST    '/' 
+* ## HTTP POST    '/' 
   
      ```
       {
@@ -75,7 +75,7 @@
         ]} 
         
 
-* ### HTTP PUT      '/:id'  
+* ## HTTP PUT      '/:id'  
 *      baseURl/_id       baseURl/60601dbb30ead127d827d85a 
          
    ``` 
@@ -111,7 +111,7 @@
 
 
   
- * ### HTTP DELETE      '/:id'    USE id,   606020c730ead127d827d85c
+ * ## HTTP DELETE      '/:id'    USE id,   606020c730ead127d827d85c
 
    ```
    {
@@ -131,7 +131,7 @@
        ] } 
 
 
-  * ### HTTP GET '/:id'    USE id,   6060232030ead127d827d85e
+  * ## HTTP GET '/:id'    USE id,   6060232030ead127d827d85e
 
       Example result
 
