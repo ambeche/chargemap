@@ -1,3 +1,6 @@
+'use strict';
+require('dotenv').config();
+const db = require('./db');
 const express = require('express');
 const cors = require('cors');
 const stationRoute = require('./routes/stationRoute');
@@ -10,4 +13,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/station', stationRoute);
 
-module.exports = app;
+db.on('connected', () => {
+  app.listen(process.env.PORT,
+      () => console.log(`App listening on port ${process.env.PORT}!`));
+});
