@@ -18,11 +18,11 @@ const levelSchema = new Schema({
   IsFastChargeCapable: Boolean,
 });
 
-const connectionSchema = new Schema({
+const connectionSchema = new mongoose.Schema({
   Quantity: Number,
-  ConnectionType: {type: Schema.Types.ObjectId, ref: 'ConnectionType'},
-  CurrentType: {type: Schema.Types.ObjectId, ref: 'CurrentType'},
-  LevelType: {type: Schema.Types.ObjectId, ref: 'Level'},
+  ConnectionTypeID: {type: Schema.Types.ObjectId, ref: 'ConnectionType'},
+  CurrentTypeID: {type: Schema.Types.ObjectId, ref: 'CurrentType'},
+  LevelID: {type: Schema.Types.ObjectId, ref: 'Level'},
 });
 
 const ConnectionType = mongoose.model('ConnectionType', connectionTypeSchema);

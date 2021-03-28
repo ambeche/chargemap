@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 const stationSchema = new mongoose.Schema({
-  Tile: String,
+  Title: String,
   Town: String,
   AddressLine1: String,
   StateOrProvince: String,
@@ -11,14 +11,13 @@ const stationSchema = new mongoose.Schema({
     type: {
       type: String,
       enum: ['Point'],
-      required: true,
     },
     coordinates: {
       type: [Number],
       required: true,
     },
   },
-  connections: [{
+  Connections: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Connection',
   }],
