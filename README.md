@@ -2,11 +2,11 @@
 
 ## API Examples
 * ### baseURL 
-* ### HTTP GET  '/'
+* ### HTTP GET    '/'
   * with filters "start" and "limit"  http://localhost:3000/station?start=10&limit=2
       
 
-      ``` [
+      ```[
     {
         "Location": {
             "coordinates": [
@@ -48,10 +48,11 @@
         "Postcode": "00700",
         "id": "5e590b0a7536c009841db2f9"
     }
-   ] ```
-  * ** filtering by geo location **  http://localhost:3000/station?topRight={"lat":60.2821946,"lng":25.036108}&bottomLeft={"lat":60.1552076,"lng":24.7816538}
+     ] 
+
+  *  #### filtering by geo location   http://localhost:3000/station?topRight={"lat":60.2821946,"lng":25.036108}&bottomLeft={"lat":60.1552076,"lng":24.7816538}
   
-* ### HTTP POST '/' 
+* ### HTTP POST         '/' 
   
     ``` {
     "Station": {
@@ -74,9 +75,9 @@
     ]
    } ```
 
-* ### HTTP PUT '/:id' 
+* ### HTTP PUT          '/:id' 
   
-  *       baseURl/_id                     baseURl/60601dbb30ead127d827d85a 
+*       baseURl/_id                     baseURl/60601dbb30ead127d827d85a 
          
       ``` {
     "Station": {
@@ -109,7 +110,8 @@
     ]
     } ``` 
 
-  * ### HTTP DELETE '/:id'    USE id,   606020c730ead127d827d85c
+  * ### HTTP DELETE        '/:id'    USE id,   606020c730ead127d827d85c
+
      ```  {
     "Station": {
         "_id": "606020c730ead127d827d85c",
@@ -170,7 +172,7 @@
     "StateOrProvince": "Southern Finland",
     "Postcode": "02630",
     "id": "6060232030ead127d827d85e" 
-       } ```
+       } 
 
 
 
