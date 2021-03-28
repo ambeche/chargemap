@@ -27,11 +27,9 @@ const getStations = async (req, res) => {
             ],
           });
         return res.json(filteredStations);
-
       } else if (topRight && req.query.bottomLeft) {
         // filtering by geolocation
-        const filteredbyLocation = await Station
-          .find(null, null, { limit: 10 })
+        const filteredbyLocation = await Station.find(null, null, { limit: 10 })
           .populate({
             path: "Connections",
             populate: [
@@ -41,9 +39,10 @@ const getStations = async (req, res) => {
             ],
           })
           .where("Location")
-          .within(rectangleBounds(JSON.parse(topRight), JSON.parse(bottomLeft)));
+          .within(
+            rectangleBounds(JSON.parse(topRight), JSON.parse(bottomLeft))
+          );
         return res.json(filteredbyLocation);
-        
       } else {
         return res
           .status(400)
@@ -53,14 +52,18 @@ const getStations = async (req, res) => {
       }
     } // returns value only if no query parameters are passed: default
     else if (Object.keys(req.query).length === 0) {
-      return res.json(await Station.find({}).limit(10)).populate({
-        path: "Connections",
-        populate: [
-          { path: "ConnectionTypeID" },
-          { path: "CurrentTypeID" },
-          { path: "LevelID" },
-        ],
-      });
+      return res.json(
+        await Station.find({})
+          .limit(10)
+          .populate({
+            path: "Connections",
+            populate: [
+              { path: "ConnectionTypeID" },
+              { path: "CurrentTypeID" },
+              { path: "LevelID" },
+            ],
+          })
+      );
     }
     return res.status(404).end();
   } catch (err) {
