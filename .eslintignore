@@ -1,0 +1,4 @@
+LICENSE
+*.json
+node_modules
+*.md
