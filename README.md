@@ -1,13 +1,17 @@
 # chargemap
 
-## API Examples
-## baseURL   http://tamanji.jelastic.metropolia.fi/station
+  REST API for serving a chargemap application with the data from every available charging station. A Charging station comprises of different connections, levels and, location and availability.
 
-* ## HTTP GET   '/'
-  * ## with filters "start" and "limit"  http://tamanji.jelastic.metropolia.fi/station?start=10&limit=2
+## API Examples
+## baseURL   https://chargemap-rest-api.herokuapp.com/station
+
+* ## HTTP GET   '/' : Get all Stations
+  * ## with filters "start" and "limit"  https://chargemap-rest-api.herokuapp.com/station?start=10&limit=2
       
 
      ```
+       *Example Result*
+       
        [{
         "Location": {
             "coordinates": [
@@ -50,38 +54,62 @@
         "id": "5e590b0a7536c009841db2f9"
       }]
 
-  *  ### filtering by geo location   http://tamanji.jelastic.metropolia.fi/station?topRight={"lat":60.2821946,"lng":25.036108}&bottomLeft={"lat":60.1552076,"lng":24.7816538}
+  *  ### filtering by geo location   https://chargemap-rest-api.herokuapp.com/station?topRight={"lat":60.2821946,"lng":25.036108}&bottomLeft={"lat":60.1552076,"lng":24.7816538}
+
+
   
-* ## HTTP POST    '/' 
+* ## HTTP POST    '/' Create a Station ( [test with Postman](https://www.postman.com/downloads/))
   
-     ```
-      {
-     "Station": {
-        "Title": "Capgemini Oy",
-        "Town": "Espoo",
-        "AddressLine1": "Sinimäentie 8b",
-        "StateOrProvince": "Southern Finland",
-        "Postcode": "02630",
-        "Location": {
-        "coordinates": [24.77772323548868, 60.203353130088146]
-        }
-      },
-     "Connections":[
-        {
-        "ConnectionTypeID": "5e39eecac5598269fdad81a0",
-        "CurrentTypeID": "5e39ef4a6921476aaf62404a",
-        "LevelID": "5e39edf7bb7ae768f05cf2bc",
-        "Quantity": 4
-        }
-        ]} 
+   
+               method: POST,
+               body: 
+                {
+               "Station": {
+                  "Title": "Capgemini Oy",
+                  "Town": "Espoo",
+                  "AddressLine1": "Sinimäentie 8b",
+                  "StateOrProvince": "Southern Finland",
+                  "Postcode": "02630",
+                  "Location": {
+                  "coordinates": [24.77772323548868, 60.203353130088146]
+                  }
+                },
+               "Connections":[
+                  {
+                  "ConnectionTypeID": "5e39eecac5598269fdad81a0",
+                  "CurrentTypeID": "5e39ef4a6921476aaf62404a",
+                  "LevelID": "5e39edf7bb7ae768f05cf2bc",
+                  "Quantity": 4
+                  }
+                  ]} 
+
+                  *Server Response*
+
+                  {
+              "Location": {
+                  "coordinates": [
+                      24.77772323548868,
+                      60.203353130088146
+                  ]
+              },
+              "Connections": [
+                  "6161a6b125d86a07ec67c787"
+              ],
+              "Title": "Capgemini Oy",
+              "Town": "Espoo",
+              "AddressLine1": "Sinimäentie 8b",
+              "StateOrProvince": "Southern Finland",
+              "Postcode": "02630",
+              "id": "6161a6b125d86a07ec67c788"
+           }
         
 
 * ## HTTP PUT      '/:id'  
-  ### use: http://tamanji.jelastic.metropolia.fi/station/60601dbb30ead127d827d85a
+       with Postman - use:https://chargemap-rest-api.herokuapp.com/station/station/6161a6b125d86a07ec67c788
    ``` 
    {
      "Station": {
-        "_id": "60601dbb30ead127d827d85a",
+        "_id": "6161a6b125d86a07ec67c788",
         "Title": "Capgemini Oy",
         "Town": "Espoo",
         "AddressLine1": "Sinimäentie 8b",
@@ -111,73 +139,60 @@
 
 
   
- * ## HTTP DELETE      '/:id'    USE id,   606020c730ead127d827d85c
-      ### http://tamanji.jelastic.metropolia.fi/station/606020c730ead127d827d85c
-
-   ```
-   {
-        "Station": {
-        "_id": "606020c730ead127d827d85c",
-        "Title": "Capgemini Oy",
-        "Town": "Espoo",
-        "AddressLine1": "Sinimäentie 8b",
-        "StateOrProvince": "Southern Finland",
-        "Postcode": "02630",
-        "Location": {
-        "coordinates": [24.77772323548868, 60.203353130088146]
-        }
-       },
-       "Connections": [
-        "606020c730ead127d827d85b"
-       ] } 
+ * ## HTTP DELETE      '/:id'    USE id,   5e590b0a7536c009841db2f7
+ 
+          // test with Postman
+          https://chargemap-rest-api.herokuapp.com/station/5e590b0a7536c009841db2f7
 
 
-  * ## HTTP GET '/:id'    USE id,   6060232030ead127d827d85e
-      ### http://tamanji.jelastic.metropolia.fi/station/6060232030ead127d827d85e
 
-      Example result
+  * ## HTTP GET '/:id'    USE id,   5e590b0a7536c009841db2e1
+      https://chargemap-rest-api.herokuapp.com/station/5e590b0a7536c009841db2e1
 
-       ```
+      *Example result*
+
+       
+                {
+        Location: {
+        coordinates: [
+        24.77772323548868,
+        60.203353130088146
+        ],
+        type: "Point"
+        },
+        Connections: [
         {
-       "Location": {
-        "coordinates": [
-            24.77772323548868,
-            60.203353130088146
-        ]
-      },
-      "Connections": [
-        {
-            "_id": "6060232030ead127d827d85d",
-            "ConnectionTypeID": {
-                "_id": "5e39eecac5598269fdad81a0",
-                "FormalName": "Avcon SAE J1772-2001",
-                "Title": "Avcon Connector",
-                "__v": 0
-            },
-            "CurrentTypeID": {
-                "_id": "5e39ef4a6921476aaf62404a",
-                "Description": "Alternating Current - Single Phase",
-                "Title": "AC (Single-Phase)",
-                "__v": 0
-            },
-            "LevelID": {
-                "_id": "5e39edf7bb7ae768f05cf2bc",
-                "Comments": "Under 2 kW, usually domestic socket types",
-                "IsFastChargeCapable": false,
-                "Title": "Level 1 : Low (Under 2kW)",
-                "__v": 0
-            },
-            "Quantity": 3,
-            "__v": 0
+        _id: "5e590b0a7536c009841db2e0",
+        ConnectionTypeID: {
+        _id: "5e39eecac5598269fdad81c3",
+        FormalName: "IEC 62196-2 Type 2",
+        Title: "Type 2 (Socket Only)",
+        __v: 0
+        },
+        LevelID: {
+        _id: "5e39edf7bb7ae768f05cf2bd",
+        Comments: "Over 2 kW, usually non-domestic socket type",
+        IsFastChargeCapable: false,
+        Title: "Level 2 : Medium (Over 2kW)",
+        __v: 0
+        },
+        CurrentTypeID: {
+        _id: "5e39ef4a6921476aaf62404b",
+        Description: "Alternating Current - Three Phase",
+        Title: "AC (Three-Phase)",
+        __v: 0
+        },
+        Quantity: 2,
+        __v: 0
         }
-       ],
-        "Title": "Capgemini Oy",
-       "Town": "Espoo",
-       "AddressLine1": "Sinimäentie 8b",
-       "StateOrProvince": "Southern Finland",
-      "Postcode": "02630",
-      "id": "6060232030ead127d827d85e" 
-       } 
+        ],
+        Title: "Capgemini Oy",
+        AddressLine1: "Sinimäentie 8b",
+        Town: "Espoo",
+        StateOrProvince: "Southern Finland",
+        Postcode: "02630",
+        id: "5e590b0a7536c009841db2e1"
+        }
 
 
 
