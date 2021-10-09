@@ -1,5 +1,7 @@
 # chargemap
 
+  REST API for serving a chargemap application with the data from every available charging station. A Charging station comprises of different connections, levels and, location and availability.
+
 ## API Examples
 ## baseURL   https://chargemap-rest-api.herokuapp.com/station
 
