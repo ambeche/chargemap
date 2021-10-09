@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: true}));
 app.use('/station', stationRoute);
 
 db.on('connected', () => {
-  app.listen(process.env.PORT, () =>
+  app.listen(process.env.PORT || 3007, () =>
     console.log(`App listening on port ${process.env.PORT}!`)
   );
 });
